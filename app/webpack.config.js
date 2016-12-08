@@ -5,7 +5,7 @@ module.exports = {
 
   entry: './src/app.js',
   output: {
-    path: './build',
+    path: '../server/public',
     filename: 'build.js'
   }, 
 

@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/elhendricks/image-gallery/issues"
   },
-  "homepage": "https://github.com/elhendricks/image-gallery#readme", 
+  "homepage": "https://github.com/elhendricks/image-gallery#readme",
   "devDependencies": {
     "angular-mocks": "^1.5.9",
     "babel-core": "^6.18.2",

@@ -1,10 +1,15 @@
 <section>
-    <h3>But Seriously... Here is where the pictures go</h3>
     <ul>
         <li ng-repeat="image in $ctrl.images">
             <image-detail
                 image="image">
             </image-detail>
+            <image-info
+                image="image">
+            </image-info>
+            <thumbnail
+                image="image">
+            </thumbnail>
         </li>
     </ul>
 </section>

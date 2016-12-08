@@ -5,7 +5,6 @@ export default function bunnyService($http, apiUrl) {
         get() {
             return $http.get(`${apiUrl}/bunnies`)
             .then(res => {
-                console.log(1);
                 return res.data;
             });
         } 

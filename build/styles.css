@@ -1,5 +1,8 @@
 * {
     color: red;
     background-color: darksalmon;
+}.thumbnail img {
+    height: 100px;
+    width: 100px;
 }
 /*# sourceMappingURL=styles.css.map*/

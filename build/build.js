@@ -32484,29 +32484,97 @@
 	
 	var _imageInfo2 = _interopRequireDefault(_imageInfo);
 	
+	var _thumbnail = __webpack_require__(10);
+	
+	var _thumbnail2 = _interopRequireDefault(_thumbnail);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var _module = _angular2.default.module('components', []);
 	
 	_module.component('imageInfo', _imageInfo2.default);
+	_module.component('thumbnail', _thumbnail2.default);
 	
 	exports.default = _module.name;
 
 /***/ },
 /* 8 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	// import template from './image-info.html';
+	
+	var _imageInfo = __webpack_require__(9);
+	
+	var _imageInfo2 = _interopRequireDefault(_imageInfo);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
-	    template: '<h1>IMAGE INFO</h1>'
-	    // template
+	    template: _imageInfo2.default,
+	    controller: controller,
+	    controllerAs: 'app'
 	};
+	
+	
+	function controller() {
+	    this.images = [{
+	        name: 'Mr. Bunny',
+	        link: 'http://f.cl.ly/items/3g3J1G0w122M360w380O/3726490195_f7cc75d377_o.jpg',
+	        description: 'Mr. Bunny is small and fluffy'
+	    }];
+	}
+
+/***/ },
+/* 9 */
+/***/ function(module, exports) {
+
+	module.exports = "<h1>IMAGE INFO</h1>\n<div ng-repeat=\"image in app.images\">\n    <h2>Title: {{image.name}}</h2>\n    <a href=\"{{image.link}}\">{{image.link}}</a>\n    <p>Description: {{image.description}}</p>   \n    <thumbnail></thumbnail>     \n</div>";
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _thumbnail = __webpack_require__(11);
+	
+	var _thumbnail2 = _interopRequireDefault(_thumbnail);
+	
+	var _thumbnail3 = __webpack_require__(12);
+	
+	var _thumbnail4 = _interopRequireDefault(_thumbnail3);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	    template: _thumbnail2.default,
+	    controller: controller
+	};
+	
+	
+	function controller() {
+	    this.styles = _thumbnail4.default;
+	}
+
+/***/ },
+/* 11 */
+/***/ function(module, exports) {
+
+	module.exports = "<div ng-class=\"['thumbnail']\">\n    <img ng-src=\"{{image.link}}\" alt=\"\">\n</div>";
+
+/***/ },
+/* 12 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
 
 /***/ }
 /******/ ]);

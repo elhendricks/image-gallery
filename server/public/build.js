@@ -56,7 +56,7 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
-	var _services = __webpack_require__(22);
+	var _services = __webpack_require__(24);
 	
 	var _services2 = _interopRequireDefault(_services);
 	
@@ -33519,7 +33519,8 @@
 		"./image-app/image-app.js": 12,
 		"./image-detail/image-detail.js": 14,
 		"./image-info/image-info.js": 16,
-		"./thumbnail/thumbnail.js": 18
+		"./image/image.js": 18,
+		"./thumbnail/thumbnail.js": 20
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33575,7 +33576,7 @@
 /* 13 */
 /***/ function(module, exports) {
 
-	module.exports = "<h1>IMAGE APP</h1>\n\n<div ng-repeat=\"image in app.images\">\n    <image-info image=\"image\"></image-info> \n    <thumbnail image=\"image\"></thumbnail>\n    <image-detail image=\"image\"></image-detail>     \n</div>";
+	module.exports = "<h1>IMAGE APP</h1>\n\n<main>\n    <image></image>\n</main>";
 
 /***/ },
 /* 14 */
@@ -33645,11 +33646,48 @@
 	    value: true
 	});
 	
-	var _thumbnail = __webpack_require__(19);
+	var _image = __webpack_require__(19);
+	
+	var _image2 = _interopRequireDefault(_image);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	    template: _image2.default,
+	    controller: controller
+	};
+	
+	
+	controller.$inject(['bunnyService']);
+	function controller(bunnies) {
+	    var _this = this;
+	
+	    bunnies.get().then(function (bunnies) {
+	        _this.images = bunnies;
+	    });
+	}
+
+/***/ },
+/* 19 */
+/***/ function(module, exports) {
+
+	module.exports = "<section>\n    <ul>\n        <li ng-repeat=\"image in $ctrl.images\">\n            <image-detail\n                image=\"image\">\n            </image-detail>\n        </li>\n    </ul>\n</section>";
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _thumbnail = __webpack_require__(21);
 	
 	var _thumbnail2 = _interopRequireDefault(_thumbnail);
 	
-	var _thumbnail3 = __webpack_require__(20);
+	var _thumbnail3 = __webpack_require__(22);
 	
 	var _thumbnail4 = _interopRequireDefault(_thumbnail3);
 	
@@ -33670,20 +33708,20 @@
 	}
 
 /***/ },
-/* 19 */
+/* 21 */
 /***/ function(module, exports) {
 
 	module.exports = "<div ng-class=\"['thumbnail']\">\n    <h3>Thumbnail:</h3>\n    <img ng-src=\"{{$ctrl.image.link}}\" alt=\"\">\n</div>";
 
 /***/ },
-/* 20 */
+/* 22 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 21 */,
-/* 22 */
+/* 23 */,
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33706,7 +33744,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var context = __webpack_require__(23);
+	var context = __webpack_require__(25);
 	
 	var _module = _angular2.default.module('services', []);
 	
@@ -33719,11 +33757,11 @@
 	exports.default = _module.name;
 
 /***/ },
-/* 23 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./bunny-service.js": 24
+		"./bunny-service.js": 26
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -33736,11 +33774,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 23;
+	webpackContext.id = 25;
 
 
 /***/ },
-/* 24 */
+/* 26 */
 /***/ function(module, exports) {
 
 	'use strict';

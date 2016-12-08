@@ -1,14 +1,15 @@
-bunnyService.$inject(['$http', 'apiUrl'])
+bunnyService.$inject = ['$http', 'apiUrl'];
 
 export default function bunnyService($http, apiUrl) {
     return {
         get() {
             return $http.get(`${apiUrl}/bunnies`)
-            .then(res => res.data);
-        }, 
-
-        
-    }
+            .then(res => {
+                console.log(1);
+                return res.data;
+            });
+        } 
+    };
 }
 
 

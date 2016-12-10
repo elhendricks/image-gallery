@@ -1,0 +1,19 @@
+{
+  "name": "image-gallery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cd app && npm i && npm test && cd ../server && npm i && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elhendricks/image-gallery.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elhendricks/image-gallery/issues"
+  },
+  "homepage": "https://github.com/elhendricks/image-gallery#readme"
+}

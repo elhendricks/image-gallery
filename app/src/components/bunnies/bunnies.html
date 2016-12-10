@@ -1,15 +1,16 @@
 <section>
+    <h2>Select View</h2>
+    <input type="checkbox" ng-model="$ctrl.imageInfo" name="view" id="image-info" ng-init="true">
+    <label for="image-info">Information</label>
+    <input type="checkbox" ng-model="$ctrl.imageDetail" name="view" id="image-detail">
+    <label for="image-detail">Detail</label>
+    <input type="checkbox" ng-model="$ctrl.thumbnail" name="view" id="thumbnail">
+    <label for="thumbnail">Thumbnail</label>
     <ul>
         <li ng-repeat="image in $ctrl.images">
-            <image-detail
-                image="image">
-            </image-detail>
-            <image-info
-                image="image">
-            </image-info>
-            <thumbnail
-                image="image">
-            </thumbnail>
+            <image-info image="image" ng-show="$ctrl.imageInfo"></image-info>
+            <image-detail image="image" ng-show="$ctrl.imageDetail"></image-detail>
+            <thumbnail image="image" ng-show="$ctrl.thumbnail"></thumbnail>
         </li>
     </ul>
 </section>

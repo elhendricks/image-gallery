@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "MONGODB_URI=mongodb://localhost/bunnies-test mocha",
+    "test": "mocha",
     "start": "node server.js"
   },
   "author": "",

@@ -6,9 +6,9 @@ import path from 'path';
 const context = require.context('./', true, /^\.\/(?!index).+?\.js$/);
 
 // import imageApp from './image-app/image-app';
-// import imageInfo from './image-info/image-info';
+// import information from './information/information';
 // import thumbnail from './thumbnail/thumbnail';
-// import imageDetail from './image-detail/image-detail';
+// import detail from './detail/detail';
 
 const module =  angular.module('components', []);
 
@@ -19,8 +19,8 @@ context.keys().forEach(key => {
 });
 
 // module.component('imageApp', imageApp);
-// module.component('imageInfo', imageInfo);
+// module.component('information', information);
 // module.component('thumbnail', thumbnail);
-// module.component('imageDetail', imageDetail);
+// module.component('detail', detail);
 
 export default module.name;

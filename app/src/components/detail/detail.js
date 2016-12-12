@@ -1,4 +1,4 @@
-import template from './image-info.html';
+import template from './detail.html';
 
 export default {
     template,

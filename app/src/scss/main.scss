@@ -1,4 +1,15 @@
+@import 'colors';
+
 * {
-    color: red;
-    background-color: darksalmon;
+    color: $text-blue;
+    background-color: $main;
+}
+
+header {
+    height: 100px;
+    text-align: center;
+    
+    h1 {
+        font-size: 5em;
+    }
 }

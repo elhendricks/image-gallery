@@ -1,0 +1,14 @@
+@import 'colors';
+
+:local(.thumbnail) {
+    background-color: $palepink;
+    h3 {
+        color: $accent;
+        font-size: 1.25em;
+    }
+    img {
+        max-height: 100px;
+        max-width: 100px;
+    }
+    
+}

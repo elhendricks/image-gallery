@@ -1,5 +1,5 @@
-import template from './thumbnail.html';
-import styles from './thumbnail.scss';
+import template from './information.html';
+import styles from './information.scss';
 
 export default {
     template,
@@ -7,7 +7,6 @@ export default {
         image: '='
     },
     controller
-    
 };
 
 function controller() {

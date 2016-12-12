@@ -7,7 +7,7 @@ export default function bunnyService($http, apiUrl) {
             .then(res => {
                 return res.data;
             });
-        } 
+        }
     };
 }
 

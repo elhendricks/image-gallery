@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/elhendricks/image-gallery/issues"
   },
-  "homepage": "https://github.com/elhendricks/image-gallery#readme"
+  "homepage": "https://github.com/elhendricks/image-gallery#readme",
+  "dependencies": {
+    "angular-ui-router": "^1.0.0-beta.3"
+  }
 }

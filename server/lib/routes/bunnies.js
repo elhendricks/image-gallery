@@ -13,9 +13,19 @@ router
         .then(bunnies => res.send(bunnies))
         .catch(next);
     })
+    .put('/:id', bodyParser, (req, res, next) => {
+        Bunny.findByIdAndUpdate(req.params.id, req.body, {new: true})
+            .then(bunny => {res.send(bunny)})
+            .catch(next);
+    })
     .post('/', bodyParser, (req, res, next) => {
         new Bunny (req.body).save()
         .then(saved => res.send(saved));
+    })
+    .delete('/:id', (req, res, next) => {
+        Bunny.findByIdAndRemove(req.params.id)
+            .then(bunny => res.send(bunny))
+            .catch(next);
     })
 
 module.exports = router;

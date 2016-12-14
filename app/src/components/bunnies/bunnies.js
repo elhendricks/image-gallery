@@ -16,9 +16,7 @@ function controller (bunnies) {
     
     this.add = function(bunny) {
         bunnies.add(bunny)
-            .then(saved => {
-                console.log(this)
-                this.images.push(saved)})
+            .then(saved => this.images.push(saved))
             .catch(console.log);
     };
     

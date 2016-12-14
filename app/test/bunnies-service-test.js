@@ -5,7 +5,7 @@ describe( ' bunny service', () => {
         angular.mock.module('services', {apiUrl: '/api'})
     );
 
-    let $httpBackend = null, pirateService = null;
+    let $httpBackend = null, bunnyService = null;
 
     beforeEach(angular.mock.inject((_bunnyService_, _$httpBackend_) => {
         $httpBackend = _$httpBackend_;

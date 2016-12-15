@@ -7,10 +7,10 @@ const schema = new Schema({
     name: requiredString,
     link: requiredString,
     description: requiredString, 
-    galleryId: {
-        type: Schema.Types.ObjectId,
-        ref: 'Gallery'
-    }
+    // galleryId: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Gallery'
+    // }
 });
 
 module.exports = mongoose.model('Image', schema);

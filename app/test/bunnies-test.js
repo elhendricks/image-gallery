@@ -1,4 +1,4 @@
-describe('bunnies component', () => {
+describe('images component', () => {
     const {assert} = chai;
 
     angular.mock.module.sharedInjector();
@@ -11,31 +11,31 @@ describe('bunnies component', () => {
     }));
 
     describe('create component', () => {
-        const bunnies = [
-            {name: 'Mr. BunBun', link: 'http://bunnies.com/cutepic_1', description: 'Mr. BunBun in repose'}, 
-            {name: 'Mr. Fluffernutter', link: 'http://bunnies.com/cutepic_2', description: 'Mr. Fluffernutter in repose'}
+        const images = [
+            {name: 'Mr. BunBun', link: 'http://images.com/cutepic_1', description: 'Mr. BunBun in repose'}, 
+            {name: 'Mr. Fluffernutter', link: 'http://images.com/cutepic_2', description: 'Mr. Fluffernutter in repose'}
         ];
 
-        const bunny = {name: 'Mr. FlopFlop', link: 'http://bunnies.com/cutepic_3', description: 'Mr. FlopFlop in repose'}
+        const image = {name: 'Mr. FlopFlop', link: 'http://images.com/cutepic_3', description: 'Mr. FlopFlop in repose'}
 
         const _id = 123;
 
-        const bunnyService = {
+        const imageService = {
             get() {
-                return Promise.resolve(bunnies);
+                return Promise.resolve(images);
             }
         };
 
         let component = null;
 
         before(() => {
-            component = $component('bunnies', {bunnyService});
+            component = $component('images', {imageService});
         });
 
-        it('loads bunnies', done => {
+        it('loads images', done => {
             setTimeout(() => {
 
-                assert.equal(component.images, bunnies);
+                assert.equal(component.images, images);
                 done();
             })
         })

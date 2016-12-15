@@ -1,30 +1,30 @@
-import template from './bunnies.html';
+import template from './images.html';
 
 export default {
     template, 
     controller
 };
 
-controller.$inject = ['bunnyService'];
-function controller (bunnies) {
+controller.$inject = ['imageService'];
+function controller (images) {
     
-    bunnies.get()
-        .then(bunnies => {
-            this.images = bunnies;
+    images.get()
+        .then(images => {
+            this.images = images;
         })
         .catch(console.log);
     
-    this.add = function(bunny) {
-        bunnies.add(bunny)
+    this.add = function(image) {
+        images.add(image)
             .then(saved => this.images.push(saved))
             .catch(console.log);
     };
     
-    this.remove = function(bunny) {
-        bunnies.remove(bunny._id)
+    this.remove = function(image) {
+        images.remove(image._id)
             .then(() => {
-                var index = this.images.indexOf(bunny);
-                console.log('bunny', bunny);
+                var index = this.images.indexOf(image);
+                console.log('image', image);
                 console.log('this.images', this.images);
                 if (index > -1) {
                     console.log(2, this.images);

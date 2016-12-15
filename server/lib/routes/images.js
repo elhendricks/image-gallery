@@ -1,30 +1,30 @@
 const express = require('express');
 const router = express.Router();
-const Bunny = require('../models/bunny');
+const Image = require('../models/image');
 const bodyParser = require('body-parser').json();
 
 router
     .get('/', (req, res, next) => {
         const query = {};
 
-        Bunny.find(query)
+        Image.find(query)
         .select('name link description')
         .lean()
-        .then(bunnies => res.send(bunnies))
+        .then(images => res.send(images))
         .catch(next);
     })
     .put('/:id', bodyParser, (req, res, next) => {
-        Bunny.findByIdAndUpdate(req.params.id, req.body, {new: true})
-            .then(bunny => {res.send(bunny)})
+        Image.findByIdAndUpdate(req.params.id, req.body, {new: true})
+            .then(image => {res.send(image)})
             .catch(next);
     })
     .post('/', bodyParser, (req, res, next) => {
-        new Bunny (req.body).save()
+        new Image (req.body).save()
         .then(saved => res.send(saved));
     })
     .delete('/:id', (req, res, next) => {
-        Bunny.findByIdAndRemove(req.params.id)
-            .then(bunny => res.send(bunny))
+        Image.findByIdAndRemove(req.params.id)
+            .then(image => res.send(image))
             .catch(next);
     })
 

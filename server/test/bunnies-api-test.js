@@ -7,7 +7,7 @@ const connection = require('../lib/setup-mongoose');
 
 const app = require('../lib/app');
 
-describe('bunnies', () => {
+describe('images', () => {
 
     before(done => {
         const drop = () => {
@@ -22,7 +22,7 @@ describe('bunnies', () => {
 
     it('gets All when empty', done => {
         request
-            .get('/api/bunnies')
+            .get('/api/images')
             .then(res => {
                 assert.deepEqual(res.body , []);
                 done();
@@ -30,18 +30,18 @@ describe('bunnies', () => {
             .catch(done);
     })
 
-    const fluffy = {name: 'bunny', link: '<url>', description: 'description'};
+    const fluffy = {name: 'image', link: '<url>', description: 'description'};
     it('posts', done => {
         request
-            .post('/api/bunnies')
+            .post('/api/images')
             .send(fluffy)
             .then(res => {
-                const bunny = res.body;
-                assert.isOk(bunny._id);
-                fluffy._id = bunny._id;
-                fluffy.__v = bunny.__v;
+                const image = res.body;
+                assert.isOk(image._id);
+                fluffy._id = image._id;
+                fluffy.__v = image.__v;
                 
-                assert.deepEqual(bunny, fluffy);
+                assert.deepEqual(image, fluffy);
                 done();
             })
             .catch(done);

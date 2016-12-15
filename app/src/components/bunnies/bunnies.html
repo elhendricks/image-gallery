@@ -12,7 +12,8 @@
         <li ng-repeat="image in $ctrl.images">
             <information image="image" ng-show="$ctrl.information"></information>
             <detail image="image" ng-show="$ctrl.detail"></detail>
-            <thumbnail image="image" ng-show="$ctrl.thumbnail"></thumbnail>
+            <thumbnail image="image" images="$ctrl.images" remove="$ctrl.remove" ng-show="$ctrl.thumbnail"></thumbnail>
         </li>
     </ul>
+    {{$ctrl.images}}
 </section>

@@ -24,11 +24,15 @@ function controller (bunnies) {
         bunnies.remove(bunny._id)
             .then(() => {
                 var index = this.images.indexOf(bunny);
-                if (index > - 1) {
+                console.log('bunny', bunny);
+                console.log('this.images', this.images);
+                if (index > -1) {
+                    console.log(2, this.images);
                     this.images.splice(index, 1);
+                    console.log(3, this.images);
                 }
             })
-            .catch(console.log);
+            .catch(err => console.log('error in remove', err));
     };
 
 }

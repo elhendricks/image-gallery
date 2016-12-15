@@ -8,6 +8,7 @@ export default function bunnyService($http, apiUrl) {
         },
 
         remove(id) {
+            console.log(1, 'bunny-service id', id);
             return $http.delete(`${apiUrl}/bunnies/${id}`)
                 .then(res => res.data);
         },

@@ -1,4 +1,8 @@
 <div ng-class="[$ctrl.styles.thumbnail]">
     <h3>Thumbnail:</h3>
     <img ng-src="{{$ctrl.image.link}}" alt="">
+    {{$ctrl.image}}
+
+    {{$ctrl.removeImage}}
+    <button ng-click="$ctrl.removeImage($ctrl.image)">Remove</button>
 </div>

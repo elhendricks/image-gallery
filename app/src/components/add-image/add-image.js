@@ -20,18 +20,14 @@ function controller() {
     this.reset();
 
     this.addImage = function() {
-        // var image = {
-        //     name: this.name,
-        //     description: this.description,
-        //     link: this.link 
-        // };
-
-        this.add({
+        var image = {
             name: this.name,
             description: this.description,
             link: this.link 
-        });
-        console.log('Made it to AddImage');
-        // this.reset();
+        };
+
+        this.add(image);
+        
+        this.reset();
     };
 }

@@ -4,7 +4,9 @@ import styles from './thumbnail.scss';
 export default {
     template,
     bindings: {
-        image: '='
+        images: '=',
+        image: '=',
+        remove: '<'
     },
     controller
     
@@ -12,4 +14,9 @@ export default {
 
 function controller() {
     this.styles = styles;
+
+    this.removeImage = function(image) {
+
+        this.remove(image);
+    };
 }

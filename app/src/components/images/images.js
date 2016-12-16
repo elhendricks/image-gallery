@@ -13,10 +13,22 @@ function controller (images) {
             this.images = images;
         })
         .catch(console.log);
+
+    images.getAlbums()
+        .then(albums => {
+            this.albums = albums;
+        });
     
     this.add = function(image) {
         images.add(image)
             .then(saved => this.images.push(saved))
+            .catch(console.log);
+    };
+
+    this.addAlbum = function(album) {
+        console.log(2, 'I exist');
+        images.addAlbum(album)
+            .then(saved => this.albums.push(saved))
             .catch(console.log);
     };
     

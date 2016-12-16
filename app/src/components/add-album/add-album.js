@@ -1,10 +1,9 @@
-import template from './add-image.html';
+import template from './add-album.html';
 
 export default {
     template,
     bindings: {
-        add: '<',
-        images: '<',
+        addAlbum: '=',
         albums: '<',
     },
     controller
@@ -15,20 +14,19 @@ function controller() {
     this.reset = function() {
         this.name = '';
         this.description = '';
-        this.link = '';
     };
 
     this.reset();
 
-    this.addImage = function() {
-        var image = {
+    this.addNewAlbum = function() {
+        var album = {
             name: this.name,
             description: this.description,
-            link: this.link 
         };
 
-        this.add(image);
+        this.addAlbum(album);
         
         this.reset();
+
     };
 }

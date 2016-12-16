@@ -26,6 +26,6 @@ router
         Image.findByIdAndRemove(req.params.id)
             .then(image => res.send(image))
             .catch(next);
-    })
+    });
 
 module.exports = router;

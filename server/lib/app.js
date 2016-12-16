@@ -3,7 +3,9 @@ const app = express();
 const morgan = require('morgan');
 const errorHandler = require('./error-handler')
 const images = require('./routes/images');
+const albums = require('./routes/albums');
 const cors = require('cors')();
+
 
 app.use(morgan('dev'));
 
@@ -26,10 +28,11 @@ app.use(morgan('dev'));
 // }
 
 app.use(cors);
-
 app.use(express.static('./public'));
 
 app.use('/api/images', images);
+app.use('/api/albums', albums);
+
 
 app.use(errorHandler);
 

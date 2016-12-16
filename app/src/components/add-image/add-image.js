@@ -28,7 +28,6 @@ function controller() {
             albumId: this.albumId
         };
 
-        console.log(image);
         this.add(image);
         
         this.reset();

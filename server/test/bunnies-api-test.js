@@ -26,7 +26,7 @@ describe('image', () => {
     const bunny = {
         name: "Mr. Bunny",
         description: "He is cute and fluffy",
-        link: "http://www.images.com"
+        link: "http://www.url.com"
     }
 
     it('gets all ALBUMS when none have been created', done => {
@@ -112,9 +112,12 @@ describe('image', () => {
 
     it('gets ALBUM with IMAGES', done => {
         request
-            .get(`api/albums/${bunnyAlbum._id}`)
+            .get(`/api/albums/${bunnyAlbum._id}`)
             .then(res => {
-                console.log(res.body);
+                for (var key in bunnyAlbum) {
+                    assert.equal(res.body[key], bunnyAlbum[key]);
+                }
+                assert.deepEqual(res.body.images[0], bunny);
                 done();
             })
             .catch(done);

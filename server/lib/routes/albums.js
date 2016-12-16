@@ -22,7 +22,6 @@ router
             Image.find({ albumId: album }).lean()
         ])
         .then(([album, images]) => {
-            console.log(images);
             album.images = images;
             res.send(album);
         })

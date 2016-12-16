@@ -26,7 +26,6 @@ function controller (images) {
     };
 
     this.addAlbum = function(album) {
-        console.log(2, 'I exist');
         images.addAlbum(album)
             .then(saved => this.albums.push(saved))
             .catch(console.log);
@@ -36,15 +35,11 @@ function controller (images) {
         images.remove(image._id)
             .then(() => {
                 var index = this.images.indexOf(image);
-                console.log('image', image);
-                console.log('this.images', this.images);
                 if (index > -1) {
-                    console.log(2, this.images);
                     this.images.splice(index, 1);
-                    console.log(3, this.images);
                 }
             })
-            .catch(err => console.log('error in remove', err));
+            .catch(console.log);
     };
 
 }

@@ -6,12 +6,15 @@ const bodyParser = require('body-parser').json();
 router
     .get('/', (req, res, next) => {
         const query = {};
-
         Image.find(query)
-        .select('name link description')
         .lean()
         .then(images => res.send(images))
         .catch(next);
+    })
+    .get('/:id', (req, res, next) => {
+        Image.findById(req.params.id)
+            .then(image => res.send(image))
+            .catch(next);
     })
     .put('/:id', bodyParser, (req, res, next) => {
         Image.findByIdAndUpdate(req.params.id, req.body, {new: true})

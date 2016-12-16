@@ -24,9 +24,11 @@ function controller() {
         var image = {
             name: this.name,
             description: this.description,
-            link: this.link 
+            link: this.link,
+            albumId: this.albumId
         };
 
+        console.log(image);
         this.add(image);
         
         this.reset();

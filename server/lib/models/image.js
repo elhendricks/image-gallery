@@ -7,9 +7,9 @@ const schema = new Schema({
     name: requiredString,
     link: requiredString,
     description: requiredString, 
-    galleryId: {
+    albumId: {
         type: Schema.Types.ObjectId,
-        ref: 'Gallery'
+        ref: 'Album'
     }
 });
 

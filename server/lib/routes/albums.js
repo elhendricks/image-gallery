@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Album = require('../models/album');
+const Image = require('../models/image');
 const bodyParser = require('body-parser').json();
 
 router
@@ -12,11 +13,22 @@ router
         .then(albums => res.send(albums))
         .catch(next);
     })
+
     .get('/:id', (req, res, next) => {
-        Album.findById(req.params.id).lean()
-            .then(album => res.send(album))
-            .catch(next);
+        const album = req.params.id;
+
+        Promise.all([
+            Album.findById(album).lean(),
+            Image.find({ albumId: album }).lean()
+        ])
+        .then(([album, images]) => {
+            console.log(images);
+            album.images = images;
+            res.send(album);
+        })
+        .catch(next);
     })
+
     .put('/:id', bodyParser, (req, res, next) => {
         Album.findByIdAndUpdate(req.params.id, req.body, {new: true})
             .then(album => res.send(album))

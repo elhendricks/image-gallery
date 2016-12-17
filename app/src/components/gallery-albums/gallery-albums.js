@@ -42,7 +42,10 @@ function controller (images, $state) {
     this.uiOnParamsChanged = params => {
         this.album = params.album;
         console.log(this.album);
-        if (this.album !== 'all') images.getAlbum(this.album);
+        if (this.album !== 'all') {
+            images.getAlbum(this.album)
+            .then(album => this.images = album.images);
+        }
         else images.getAlbums();
     };
 

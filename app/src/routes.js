@@ -9,9 +9,30 @@ export default function routes($stateProvider, $urlRouterProvider) {
     });
 
     $stateProvider.state({
-        name: 'images',
-        url: '/images',
-        component: 'images' 
+        name: 'gallery',
+        url: '/gallery',
+        component: 'gallery'
+    });
+
+    $stateProvider.state({
+        name: 'gallery.admin',
+        url: '/admin',
+        component: 'galleryAdmin'
+    });
+
+    $stateProvider.state({
+        name: 'gallery.albums',
+        url: '/:view?album',
+        component: 'galleryAlbums', 
+        params: {
+            view: {dynamic: true},
+            album: {dynamic: true},
+        },
+
+        resolve: {
+            view: ['$transition$', t => t.params().view || 'thumbnail'],
+            album: ['$transition$', t => t.params().album || '']
+        }
     });
 
     $stateProvider.state({

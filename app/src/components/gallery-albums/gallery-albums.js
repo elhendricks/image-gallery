@@ -1,13 +1,18 @@
-import template from './images.html';
+import template from './gallery-albums.html';
 
 export default {
     template, 
-    controller
+    controller, 
+    bindings: {
+        album: '<',
+        view: '<'
+    }
+
 };
 
 controller.$inject = ['imageService'];
 function controller (images) {
-    
+     
     images.get()
         .then(images => {
             this.images = images;
@@ -18,19 +23,7 @@ function controller (images) {
         .then(albums => {
             this.albums = albums;
         });
-    
-    this.add = function(image) {
-        images.add(image)
-            .then(saved => this.images.push(saved))
-            .catch(console.log);
-    };
 
-    this.addAlbum = function(album) {
-        images.addAlbum(album)
-            .then(saved => this.albums.push(saved))
-            .catch(console.log);
-    };
-    
     this.remove = function(image) {
         images.remove(image._id)
             .then(() => {
@@ -40,6 +33,11 @@ function controller (images) {
                 }
             })
             .catch(console.log);
+    };
+
+    this.uiOnParamsChanged = params => {
+        console.log(params);
+        this.view = params.view;
     };
 
 }

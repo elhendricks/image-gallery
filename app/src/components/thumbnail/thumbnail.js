@@ -5,7 +5,6 @@ export default {
     template,
     bindings: {
         images: '=',
-        image: '=',
         remove: '<'
     },
     controller

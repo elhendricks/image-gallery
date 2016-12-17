@@ -1,6 +1,7 @@
 import template from './add-image.html';
 
 export default {
+    transclude: true,
     template,
     bindings: {
         add: '<',

@@ -1,5 +1,9 @@
-<div ng-class="[$ctrl.styles.detail]">
-    <h2>{{$ctrl.image.name}}</h2>
-    <img src="{{$ctrl.image.link}}" alt="{{$ctrl.image.name}}">
-    <p>Description: {{$ctrl.image.description}}</p>
-</div>
+<ul>
+    <li ng-repeat="image in $ctrl.images">
+        <div ng-class="[$ctrl.styles.detail]">
+            <h2>{{$ctrl.image.name}}</h2>
+            <img src="{{$ctrl.image.link}}" alt="{{$ctrl.image.name}}">
+            <p>Description: {{$ctrl.image.description}}</p>
+        </div>
+    </li>
+</ul>

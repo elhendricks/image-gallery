@@ -35,17 +35,15 @@ function controller (images, $state) {
             .catch(console.log);
     };
 
-    this.updateView = function(view) {
-        $state.go($state.current.name, {view});
+    this.updateAlbum = function() {
+        $state.go($state.current.name, {album: this.albumId});
     };
 
     this.uiOnParamsChanged = params => {
-        // this.view = params.view;
         this.album = params.album;
         console.log(this.album);
-        if (this.album) images.getAlbum(this.album);
+        if (this.album !== 'all') images.getAlbum(this.album);
         else images.getAlbums();
-
     };
 
 }

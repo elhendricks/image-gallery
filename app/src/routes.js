@@ -22,7 +22,7 @@ export default function routes($stateProvider, $urlRouterProvider) {
 
     $stateProvider.state({
         name: 'gallery.albums',
-        url: '/:album',
+        url: '/albums/:album',
         component: 'galleryAlbums', 
         params: {
             album: {dynamic: true},

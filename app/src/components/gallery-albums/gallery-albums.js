@@ -10,14 +10,14 @@ export default {
 
 };
 
-controller.$inject = ['imageService'];
-function controller (images) {
+controller.$inject = ['imageService', '$state'];
+function controller (images, $state) {
      
-    images.get()
-        .then(images => {
-            this.images = images;
-        })
-        .catch(console.log);
+    // images.get()
+    //     .then(images => {
+    //         this.images = images;
+    //     })
+    //     .catch(console.log);
 
     images.getAlbums()
         .then(albums => {
@@ -35,9 +35,17 @@ function controller (images) {
             .catch(console.log);
     };
 
+    this.updateView = function(view) {
+        $state.go($state.current.name, {view});
+    };
+
     this.uiOnParamsChanged = params => {
-        console.log(params);
-        this.view = params.view;
+        // this.view = params.view;
+        this.album = params.album;
+        console.log(this.album);
+        if (this.album) images.getAlbum(this.album);
+        else images.getAlbums();
+
     };
 
 }

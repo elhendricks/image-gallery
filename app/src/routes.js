@@ -22,15 +22,13 @@ export default function routes($stateProvider, $urlRouterProvider) {
 
     $stateProvider.state({
         name: 'gallery.albums',
-        url: '/:view?album',
+        url: '/:album',
         component: 'galleryAlbums', 
         params: {
-            view: {dynamic: true},
             album: {dynamic: true},
         },
 
         resolve: {
-            view: ['$transition$', t => t.params().view || 'thumbnail'],
             album: ['$transition$', t => t.params().album || '']
         }
     });

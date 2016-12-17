@@ -1,19 +1,19 @@
 <section>
     <!--View Selection-->
-    <h2>Select View</h2>
-    <input type="checkbox" ng-model="$ctrl.information" name="view" id="information">
+
+    <select ng-model="$ctrl.view" ng-change="$ctrl.updateView($ctrl.view)">
+        <option value="">--Select View--</option>
+        <option ng-repeat="view in ['thumbnail', 'information', 'detail']" ng-value="view">{{view}}</option>
+    </select>
+    <!--<input type="checkbox" ng-model="$ctrl.information" name="view" id="information">
     <label for="information">Information</label>
     <input type="checkbox" ng-model="$ctrl.detail" name="view" id="detail">
     <label for="detail">Detail</label>
     <input type="checkbox" ng-model="$ctrl.thumbnail" name="view" id="thumbnail">
-    <label for="thumbnail">Thumbnail</label>
+    <label for="thumbnail">Thumbnail</label>    -->
+        <information ng-if="$ctrl.view==='information'" images="$ctrl.images"></information>
+        <detail ng-if="$ctrl.view==='detail'" images="$ctrl.images"></detail>
+        <thumbnail ng-if="$ctrl.view==='thumbnail'"  images="$ctrl.images" remove="$ctrl.remove" ></thumbnail>
 
-
-    {{$ctrl.view}}
-    
-            <information ng-if="$ctrl.view===information" images="images"></information>
-            <detail ng-if="$ctrl.view===detail" images="images"></detail>
-            <thumbnail ng-if="$ctrl.view===thumbnail" images="images" images="$ctrl.images" remove="$ctrl.remove" ></thumbnail>
-        </li>
-    </ul>
+        <h2>{{$ctrl.view}}</h2>
 </section>

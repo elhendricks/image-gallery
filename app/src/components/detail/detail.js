@@ -4,7 +4,7 @@ import styles from './detail.scss';
 export default {
     template,
     bindings: {
-        image: '='
+        images: '='
     }, 
     controller
 };

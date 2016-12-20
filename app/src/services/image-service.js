@@ -17,27 +17,6 @@ export default function imageService($http, apiUrl) {
                 .then(res => res.data);
         },
 
-        getAlbum(id) {
-            return $http.get(`${apiUrl}/albums/${id}`)
-            .then(res => res.data);
-        },
-
-        getAlbums() {
-            return $http.get(`${apiUrl}/albums`)
-            .then(res => res.data);
-        },
-
-        removeAlbum(id) {
-            return $http.delete(`${apiUrl}/albums/${id}`)
-                .then(res => res.data);
-        },
-
-        addAlbum(album) {
-            return $http.post(`${apiUrl}/albums`, album)
-                .then(res => res.data);
-        }
-
-
     };
 }
 

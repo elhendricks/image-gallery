@@ -2,10 +2,11 @@ import angular from 'angular';
 import './scss/main.scss';
 import components from './components';
 import services from './services';
+import defaultRoute from 'angular-ui-router-default';
 import uiRouter from 'angular-ui-router';
 import routes from './routes';
 
-const app = angular.module('myApp', [components, services, uiRouter]);
+const app = angular.module('myApp', [components, services, uiRouter, defaultRoute]);
 
 app.config(routes);
 

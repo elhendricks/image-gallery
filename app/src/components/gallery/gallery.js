@@ -1,6 +1,9 @@
 import template from './gallery.html';
 
 export default {
-    template
+    template, 
+    bindings: {
+        albums: '=',
+    }
 };
 

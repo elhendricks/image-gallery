@@ -18,5 +18,8 @@
   "homepage": "https://github.com/elhendricks/image-gallery#readme",
   "dependencies": {
     "angular-ui-router": "^1.0.0-beta.3"
+  },
+  "devDependencies": {
+    "protractor": "^4.0.13"
   }
 }

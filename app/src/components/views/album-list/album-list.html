@@ -1,0 +1,5 @@
+<ul ng-repeat="album in $ctrl.albums">
+    <li>
+        <a ui-sref="gallery.albums.thumbnail({album: album._id})">{{album.name}}</a>
+    </li>  
+</ul>

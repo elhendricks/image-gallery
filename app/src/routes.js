@@ -7,25 +7,13 @@ export default function routes($stateProvider, $urlRouterProvider) {
     $stateProvider.state({
         name: 'gallery',
         url: '/gallery',
-        component: 'gallery', 
+        component: 'gallery',
+        abstract: true,
+        default: '.admin',
         resolve: {
             albums: ['albumService', function(albums) {
                 return albums.getAlbums();
             }],
-            add: ['imageService', function(images) {
-                return function(image) {
-                    images.add(image)
-                        .catch(console.log);
-                };
-            }], 
-
-            addAlbum: ['albumService', function(albums) {
-                return function(album) {
-                    albums.addAlbum(album)
-                    .then(saved => this.albums.push(saved))
-                    .catch(console.log);
-                };
-            }]
         },
 
     });
@@ -33,12 +21,21 @@ export default function routes($stateProvider, $urlRouterProvider) {
     $stateProvider.state({
         name: 'gallery.admin',
         url: '/admin',
-        // component: 'galleryAdmin', 
-        views: {
-            one: {template:'<p> I\'m number one </p>'},
-            two: {template:'<p> I\'m number two </p>'} 
-        }
-        
+        resolve: {
+            add: ['imageService', function(images) {
+                return function(image) {
+                    return images.add(image)
+                    .then(img => this.images.push(img));
+                };
+            }], 
+            addAlbum: ['albumService', function(albums) {
+                return function(album) {
+                    return albums.addAlbum(album)
+                        .then(alb => this.albums.push(alb));
+                };
+            }]
+        },
+        component: 'galleryAdmin', 
     });
 
     $stateProvider.state({
@@ -52,6 +49,24 @@ export default function routes($stateProvider, $urlRouterProvider) {
         resolve: {
             album: ['$transition$', t => t.params().album || '']
         }
+    });
+
+    $stateProvider.state({
+        name: 'gallery.albums.thumbnail',
+        url: '/thumbnail',
+        component: 'thumbnail'
+    });
+
+    $stateProvider.state({
+        name: 'gallery.albums.detail',
+        url: '/detail',
+        component: 'detail'
+    });
+
+    $stateProvider.state({
+        name: 'gallery.albums.information',
+        url: '/information',
+        component: 'information'
     });
 
     $stateProvider.state({

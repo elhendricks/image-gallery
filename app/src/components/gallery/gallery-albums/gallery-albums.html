@@ -1,0 +1,24 @@
+<section>
+
+    Does this work?
+    
+    <!--{{$ctrl.albums}}
+    {{$ctrl.view}}-->
+    <!--Album Selection-->
+
+    <!--<select ng-model="$ctrl.albumId" ng-change="$ctrl.updateAlbum()">
+        <option value="">--Select Album--</option>
+        <option ng-repeat="album in $ctrl.albums" ng-value="album._id">{{album.name}}</option>
+    </select>-->
+    <!--View Selection-->
+
+    <!--<select ng-model="$ctrl.view">
+        <option value="">--Select View--</option>
+        <option ng-repeat="view in ['thumbnail', 'information', 'detail']" ng-value="view">{{view}}</option>
+    </select>-->
+
+    <ui-view>
+        <album-list albums="$ctrl.albums"></album-list>
+    </ui-view>
+
+</section>
